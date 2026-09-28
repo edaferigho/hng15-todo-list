@@ -91,6 +91,17 @@ corrupt or outdated payload can never crash the app. Theme is stored under
 Due dates are stored as plain `YYYY-MM-DD` strings and parsed into **local**
 midnight, which avoids the off-by-one-day bugs you get from UTC parsing.
 
+## Contributing
+
+See [`AGENTS.md`](./AGENTS.md) for the architecture, layering rules, coding
+conventions and the step-by-step playbook for structuring a change. It is the
+single source of truth for how work is done in this repo — read it before making
+non-trivial edits, and update it when a convention changes.
+
+In short: logic goes in `src/lib/` (pure, unit-tested), state in `src/hooks/`,
+markup in `src/components/`, and nothing is done until `npm run typecheck`,
+`npm test` and `npm run build` all pass.
+
 ## Deploying to Vercel
 
 The repo ships with a [`vercel.json`](./vercel.json) that pins the Vite
